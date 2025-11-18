@@ -615,7 +615,7 @@ def main():
 						"優先度",
 						options=[1, 2, 3, 4, 5],
 						value=item['priority'],
-						key=f\"priority_{item['id']}\"
+						key=f"priority_{item['id']}"
 					)
 					
 					if new_priority != item['priority']:
@@ -629,19 +629,19 @@ def main():
 					new_notes = st.text_area(
 						"メモ",
 						value=current_notes,
-						key=f\"notes_{item['id']}\",
+						key=f"notes_{item['id']}",
 						height=80
 					)
 					
 					if new_notes != current_notes:
-						if st.button("💾 メモを保存", key=f\"save_notes_{item['id']}\"):
+						if st.button("💾 メモを保存", key=f"save_notes_{item['id']}"):
 							db.update_wishlist_item(item['id'], notes=new_notes)
 							st.success("✅ メモを保存しました")
 							st.cache_data.clear()
 							st.rerun()
 					
 					# 削除ボタン
-					if st.button("🗑️ 削除", key=f\"delete_{item['id']}\", use_container_width=True):
+					if st.button("🗑️ 削除", key=f"delete_{item['id']}", use_container_width=True):
 						db.remove_from_wishlist(item['id'])
 						st.success("✅ ウィッシュリストから削除しました")
 						st.cache_data.clear()
