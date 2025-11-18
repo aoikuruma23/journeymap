@@ -3,7 +3,10 @@
 MP4, MOV からGPS座標と撮影日時を抽出
 """
 
-import cv2
+try:
+	import cv2  # OpenCV（環境により未インストールの場合あり）
+except Exception:
+	cv2 = None
 from datetime import datetime
 from pathlib import Path
 import subprocess
@@ -83,6 +86,8 @@ class VideoMetadataExtractor:
 	def _extract_with_opencv(file_path, result):
 		"""OpenCVを使用して基本情報を抽出"""
 		try:
+			if cv2 is None:
+				return result
 			cap = cv2.VideoCapture(str(file_path))
 			
 			if not cap.isOpened():
@@ -151,6 +156,8 @@ class VideoMetadataExtractor:
 		}
 		
 		try:
+			if cv2 is None:
+				return info
 			cap = cv2.VideoCapture(str(file_path))
 			if cap.isOpened():
 				info['width'] = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))

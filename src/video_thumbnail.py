@@ -2,7 +2,10 @@
 動画サムネイル生成モジュール
 """
 
-import cv2
+try:
+	import cv2  # OpenCV（GUI不要な環境では未インストールの可能性）
+except Exception:
+	cv2 = None
 from pathlib import Path
 from PIL import Image
 import tempfile
@@ -35,6 +38,10 @@ class VideoThumbnailGenerator:
 		try:
 			logger = get_logger()
 			logger.debug(f"サムネイル生成開始: {video_path}")
+			
+			if cv2 is None:
+				logger.warning("OpenCV(cv2)が利用できないため、動画サムネイル生成をスキップします")
+				return None
 			# 動画ファイルを開く
 			video = cv2.VideoCapture(str(video_path))
 			
@@ -107,6 +114,9 @@ class VideoThumbnailGenerator:
 		try:
 			logger = get_logger()
 			logger.debug(f"動画情報取得: {video_path}")
+			if cv2 is None:
+				logger.warning("OpenCV(cv2)が利用できないため、動画情報取得をスキップします")
+				return {}
 			video = cv2.VideoCapture(str(video_path))
 			
 			if not video.isOpened():
