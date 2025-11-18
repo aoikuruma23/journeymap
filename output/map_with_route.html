@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ce11e4b1341fbce523b6c4dd4ea317c1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ce11e4b1341fbce523b6c4dd4ea317c1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ce11e4b1341fbce523b6c4dd4ea317c1 = L.map(
+                "map_ce11e4b1341fbce523b6c4dd4ea317c1",
+                {
+                    center: [35.67218, 139.76122],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_ce11e4b1341fbce523b6c4dd4ea317c1);
+
+            
+
+        
+    
+            var tile_layer_6e4c1385094bd4cbafc5497f8dc608ad = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6e4c1385094bd4cbafc5497f8dc608ad.addTo(map_ce11e4b1341fbce523b6c4dd4ea317c1);
+        
+    
+            var marker_01eb18b9d1e808725a14e64c9579ce3b = L.marker(
+                [35.6812, 139.7671],
+                {
+}
+            ).addTo(map_ce11e4b1341fbce523b6c4dd4ea317c1);
+        
+    
+            var icon_a3215f6b3229ac100ba9195e34f828ea = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0fafb2744584877e59bdaafffd581793 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_91e44b594734fff0c59cfd36fc01be03 = $(`<div id="html_91e44b594734fff0c59cfd36fc01be03" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; width: 200px;">                 <h4 style="margin: 0 0 8px 0; color: #333;">                     📷 tokyo_station.jpg                 </h4>                 <p style="margin: 4px 0; color: #666; font-size: 12px;">                     <strong>種類:</strong> image<br>                     <strong>日時:</strong> 2024-03-15T09:00:00<br>                     <strong>GPS:</strong> (35.681200, 139.767100)                 </p>             </div>             </div>`)[0];
+                popup_0fafb2744584877e59bdaafffd581793.setContent(html_91e44b594734fff0c59cfd36fc01be03);
+            
+        
+
+        marker_01eb18b9d1e808725a14e64c9579ce3b.bindPopup(popup_0fafb2744584877e59bdaafffd581793)
+        ;
+
+        
+    
+    
+            marker_01eb18b9d1e808725a14e64c9579ce3b.bindTooltip(
+                `<div>
+                     tokyo_station.jpg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_01eb18b9d1e808725a14e64c9579ce3b.setIcon(icon_a3215f6b3229ac100ba9195e34f828ea);
+            
+    
+            var marker_29c3a987a466c5c2fe0d1fc0afe10940 = L.marker(
+                [35.6852, 139.7528],
+                {
+}
+            ).addTo(map_ce11e4b1341fbce523b6c4dd4ea317c1);
+        
+    
+            var icon_c7152f845295405531551e1351085286 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d7f8b1687d8693e02c32860873543977 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ed9fc64dbd807a5bb02eef1d28c7a994 = $(`<div id="html_ed9fc64dbd807a5bb02eef1d28c7a994" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; width: 200px;">                 <h4 style="margin: 0 0 8px 0; color: #333;">                     📷 imperial_palace.jpg                 </h4>                 <p style="margin: 4px 0; color: #666; font-size: 12px;">                     <strong>種類:</strong> image<br>                     <strong>日時:</strong> 2024-03-15T10:30:00<br>                     <strong>GPS:</strong> (35.685200, 139.752800)                 </p>             </div>             </div>`)[0];
+                popup_d7f8b1687d8693e02c32860873543977.setContent(html_ed9fc64dbd807a5bb02eef1d28c7a994);
+            
+        
+
+        marker_29c3a987a466c5c2fe0d1fc0afe10940.bindPopup(popup_d7f8b1687d8693e02c32860873543977)
+        ;
+
+        
+    
+    
+            marker_29c3a987a466c5c2fe0d1fc0afe10940.bindTooltip(
+                `<div>
+                     imperial_palace.jpg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_29c3a987a466c5c2fe0d1fc0afe10940.setIcon(icon_c7152f845295405531551e1351085286);
+            
+    
+            var marker_1846d550defc37082f931907e64a9343 = L.marker(
+                [35.6595, 139.7004],
+                {
+}
+            ).addTo(map_ce11e4b1341fbce523b6c4dd4ea317c1);
+        
+    
+            var icon_5645d6739b8f79618ef967ce5ba17504 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ac8226300b2c394076f3ae694399b322 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_233c478428c6488dc5daa43b5d71a22f = $(`<div id="html_233c478428c6488dc5daa43b5d71a22f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; width: 200px;">                 <h4 style="margin: 0 0 8px 0; color: #333;">                     📷 shibuya.jpg                 </h4>                 <p style="margin: 4px 0; color: #666; font-size: 12px;">                     <strong>種類:</strong> image<br>                     <strong>日時:</strong> 2024-03-15T14:00:00<br>                     <strong>GPS:</strong> (35.659500, 139.700400)                 </p>             </div>             </div>`)[0];
+                popup_ac8226300b2c394076f3ae694399b322.setContent(html_233c478428c6488dc5daa43b5d71a22f);
+            
+        
+
+        marker_1846d550defc37082f931907e64a9343.bindPopup(popup_ac8226300b2c394076f3ae694399b322)
+        ;
+
+        
+    
+    
+            marker_1846d550defc37082f931907e64a9343.bindTooltip(
+                `<div>
+                     shibuya.jpg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1846d550defc37082f931907e64a9343.setIcon(icon_5645d6739b8f79618ef967ce5ba17504);
+            
+    
+            var marker_a4543dee869adca4d25181ed36baa6d3 = L.marker(
+                [35.7101, 139.8107],
+                {
+}
+            ).addTo(map_ce11e4b1341fbce523b6c4dd4ea317c1);
+        
+    
+            var icon_dea27713610d144cd63017043f72e9c8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "film",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_58ab8a72c22136673ff27381a9e0b48a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_18ff3b0f8853716b36182a0a12c89c0a = $(`<div id="html_18ff3b0f8853716b36182a0a12c89c0a" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; width: 200px;">                 <h4 style="margin: 0 0 8px 0; color: #333;">                     📷 skytree.mp4                 </h4>                 <p style="margin: 4px 0; color: #666; font-size: 12px;">                     <strong>種類:</strong> video<br>                     <strong>日時:</strong> 2024-03-15T16:30:00<br>                     <strong>GPS:</strong> (35.710100, 139.810700)                 </p>             </div>             </div>`)[0];
+                popup_58ab8a72c22136673ff27381a9e0b48a.setContent(html_18ff3b0f8853716b36182a0a12c89c0a);
+            
+        
+
+        marker_a4543dee869adca4d25181ed36baa6d3.bindPopup(popup_58ab8a72c22136673ff27381a9e0b48a)
+        ;
+
+        
+    
+    
+            marker_a4543dee869adca4d25181ed36baa6d3.bindTooltip(
+                `<div>
+                     skytree.mp4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a4543dee869adca4d25181ed36baa6d3.setIcon(icon_dea27713610d144cd63017043f72e9c8);
+            
+    
+            var marker_cb24df3388f0c7a48c1cbab740ad7a5e = L.marker(
+                [35.6249, 139.7751],
+                {
+}
+            ).addTo(map_ce11e4b1341fbce523b6c4dd4ea317c1);
+        
+    
+            var icon_a912f9fccfc3499c021ebdc29e1a5ebc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "camera",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a12d0cd6138e1f56c303a917e00ee9b2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5d1ad3672da4e8ce51df259edb2363e0 = $(`<div id="html_5d1ad3672da4e8ce51df259edb2363e0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; width: 200px;">                 <h4 style="margin: 0 0 8px 0; color: #333;">                     📷 odaiba.jpg                 </h4>                 <p style="margin: 4px 0; color: #666; font-size: 12px;">                     <strong>種類:</strong> image<br>                     <strong>日時:</strong> 2024-03-15T18:00:00<br>                     <strong>GPS:</strong> (35.624900, 139.775100)                 </p>             </div>             </div>`)[0];
+                popup_a12d0cd6138e1f56c303a917e00ee9b2.setContent(html_5d1ad3672da4e8ce51df259edb2363e0);
+            
+        
+
+        marker_cb24df3388f0c7a48c1cbab740ad7a5e.bindPopup(popup_a12d0cd6138e1f56c303a917e00ee9b2)
+        ;
+
+        
+    
+    
+            marker_cb24df3388f0c7a48c1cbab740ad7a5e.bindTooltip(
+                `<div>
+                     odaiba.jpg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cb24df3388f0c7a48c1cbab740ad7a5e.setIcon(icon_a912f9fccfc3499c021ebdc29e1a5ebc);
+            
+    
+            var poly_line_3bf307dcc928d0f504848fc6cce3f5ac = L.polyline(
+                [[35.6812, 139.7671], [35.6852, 139.7528], [35.6595, 139.7004], [35.7101, 139.8107], [35.6249, 139.7751]],
+                {"bubblingMouseEvents": true, "color": "#FF5733", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF5733", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_ce11e4b1341fbce523b6c4dd4ea317c1);
+        
+    
+        var popup_305fa882890ccb57d179769f9ee30876 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e745eb5b16d311e94b709917687ec2fd = $(`<div id="html_e745eb5b16d311e94b709917687ec2fd" style="width: 100.0%; height: 100.0%;">移動ルート</div>`)[0];
+                popup_305fa882890ccb57d179769f9ee30876.setContent(html_e745eb5b16d311e94b709917687ec2fd);
+            
+        
+
+        poly_line_3bf307dcc928d0f504848fc6cce3f5ac.bindPopup(popup_305fa882890ccb57d179769f9ee30876)
+        ;
+
+        
+    
+    
+            poly_line_3bf307dcc928d0f504848fc6cce3f5ac.bindTooltip(
+                `<div>
+                     クリックで詳細表示
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
