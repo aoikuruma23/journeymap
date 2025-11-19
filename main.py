@@ -407,6 +407,48 @@ def main():
 		
 		st.markdown("---")
 		
+		# Google Drive 連携
+		st.markdown("### ☁️ Google Drive 連携")
+		with st.expander("設定 / 手動同期", expanded=False):
+			st.caption("サービスアカウントJSONを Streamlit Secrets の `gcp_service_account` に保存し、このアカウントにフォルダを共有してください。")
+			
+			drive_folder_id = st.text_input("Drive フォルダID", value=st.session_state.get("drive_folder_id", ""))
+			if drive_folder_id:
+				st.session_state.drive_folder_id = drive_folder_id
+			
+			last_synced = st.session_state.get("drive_last_synced", None)
+			if last_synced:
+				st.info(f"前回同期: {last_synced}")
+			
+			if st.button("📥 手動同期", use_container_width=True):
+				try:
+					if "drive_folder_id" not in st.session_state or not st.session_state.drive_folder_id:
+						st.error("フォルダIDを入力してください")
+					else:
+						from src.drive_sync import DriveSync
+						from src.scanner import MediaScanner
+						
+						sync = DriveSync(st.session_state.drive_folder_id)
+						res = sync.sync_new_photos(modified_after_iso=last_synced)
+						
+						if res["downloaded"] > 0:
+							with st.spinner("新規ファイルをスキャン・登録中..."):
+								scan_result = MediaScanner.scan_folder(sync.download_dir, recursive=False)
+								db = Database()
+								db.initialize()
+								from src.exif_extractor import ExifExtractor
+								from src.video_metadata import VideoMetadataExtractor
+								db.bulk_insert_from_scanner(scan_result, ExifExtractor, VideoMetadataExtractor)
+								db.close()
+							st.success(f"✅ {res['downloaded']} 件のファイルを取り込みました")
+							st.session_state.drive_last_synced = res.get("latest") or st.session_state.get("drive_last_synced")
+							st.cache_data.clear()
+							st.rerun()
+						else:
+							st.info("新しいファイルはありませんでした")
+				except Exception as e:
+					st.error(f"❌ 同期エラー: {e}")
+		
 		# 観光地データ管理
 		st.markdown("### 🗾 観光地データ")
 		
